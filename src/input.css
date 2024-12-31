@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Yekan";
+    src: url("../fonts/Yekan-Font-master/Yekan.ttf") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Yekan Medium";
+    src: url("../fonts/Yekan-Font-master/Yekan.woff") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Yekan bold";
+    src: url("../fonts/Yekan-Font-master/Yekan.woff2"), format("woff2");
+    font-display: swap;
+  }
+}
+
+@layer components {
+  .submenu {
+    @apply hidden flex-col gap-y-3 pr-7 text-zinc-600 text-sm mt-3 dark:text-white;
+  }
+  .submenu--open {
+    @apply flex flex-col gap-y-7 pr-7 text-zinc-600 text-sm dark:text-white;
+  }
+  .submenu__item--active::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: #fdba74;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .submenu__item--active {
+    position: relative;
+    padding-right: 10px;
+    color: #fdba74;
+  }
+  .overlay {
+    @apply invisible opacity-0 bg-black/40 w-full h-full fixed inset-0 z-10 md:hidden;
+  }
+  .overlay-visible {
+    opacity: 100;
+    visibility: visible;
+  }
+  .circle {
+    @apply rounded-full border flex justify-center items-center;
+  }
+  .circle--lg {
+    @apply absolute bottom-0 left-0 mx-auto right-0 translate-y-2/4  w-[203px] h-[203px] border-white/25;
+  }
+  .circle--md {
+    @apply w-[145px] h-[145px] border-white/50;
+  }
+  .circle--sm {
+    @apply w-[95px] h-[95px] border-white/80;
+  }
+
+  @media screen and (min-width: 768px) {
+    html.dark .products {
+      background-image: url("../images/CoffeeShop-Files/body-bg.png");
+      /* height: 100vh; */
+      height: 100%;
+      background-repeat: no-repeat;
+    }
+    .products {
+      background: linear-gradient(
+          rgba(243, 244, 246, 0.65),
+          rgba(243, 244, 246, 0.65)
+        ),
+        url("../images/CoffeeShop-Files/body-bg.png");
+      height: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+  .section-title {
+    @apply text-2xl md:text-5xl font-semibold text-zinc-700  dark:text-white;
+  }
+  .section-subtitle {
+    @apply inline-block text-xl md:text-3xl text-zinc-700 tracking-tighter mt-2.5 dark:text-white;
+  }
+  .section-link {
+    @apply text-orange-300 text-base md:text-xl flex items-center md:gap-x-1 h-10 transition-colors pr-3 rounded-lg pl-1 hover:bg-orange-300/20;
+  }
+  .cart-icon-card {
+    @apply w-4 h-4 md:w-6 m-[7px] md:h-6;
+  }
+  .cart-icon-parent {
+    @apply transition-colors hover:bg-teal-600 dark:hover:bg-teal-600 dark:bg-zinc-800 rounded-full  flex items-center justify-center;
+  }
+  .star {
+    @apply w-4 h-4 md:w-6 md:h-6 text-yellow-400;
+  }
+  .category-banners1 {
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
+      url("../images/CoffeeShop-Files/categories/category-left.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .category-banners2 {
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
+      url("../images/CoffeeShop-Files/categories/category-right.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .score-club {
+    background: linear-gradient(
+      -270deg,
+      rgba(16, 185, 129, 0.8),
+      rgba(16, 185, 129, 1)
+    );
+    border-radius: 16px;
+  }
+  .color-Gradiant {
+    background: linear-gradient(
+      270deg,
+      rgba(253, 186, 116, 1),
+      rgba(254, 215, 170, 1)
+    );
+  }
+}
+
+@layer utilities {
+  .left-to-right {
+    direction: ltr;
+    text-align: left;
+  }
+}
